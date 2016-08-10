@@ -15,11 +15,19 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>MAKE</title>
 </head>
 <body>
-<div id="content">
-  <%= yield %>
-</div>
+  <header>
+    <h1 class="left">logo</h1>
+    <ul class="right">
+      <li><a href="/">Home</a></li>
+      <li><a href="/users/new">Register</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </header>
+  <main class="container">
+    <%= yield %>
+  </main>
 </body>
 </html>
