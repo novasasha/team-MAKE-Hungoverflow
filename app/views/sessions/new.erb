@@ -1,15 +1,13 @@
-<h2>Register</h2>
+<h2>Login</h2>
 <% if @errors %>
   <% @errors.each do |error| %>
     <%= error %>
   <% end %>
 <% end %>
-<form method="POST" action="/users">
+<form method="POST" action="/sessions">
   <label for= "username">Username:</label>
   <input type="text" name="user[username]">
-  <label for= "email">Email:</label>
-  <input type="email" name="user[email]">
   <label for= "password">Password:</label>
   <input type="password" name="user[password]">
-  <input type="submit" value="Register">
+  <input type="submit" value="Login">
 </form>

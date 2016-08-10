@@ -20,11 +20,23 @@
 <body>
   <header>
     <h1 class="left">logo</h1>
-    <ul class="right">
-      <li><a href="/">Home</a></li>
-      <li><a href="/users/new">Register</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
+    <section class="navigation right">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <% if logged_in? %>
+          <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+          <li>
+            <form method="post" action="/sessions">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Logout">
+            </form>
+          </li>
+        <% else %>
+          <li><a href="/users/new">Register</a></li>
+          <li><a href="/sessions/new">Login</a></li>
+        <% end %>
+      </ul>
+    </section>
   </header>
   <main class="container">
     <%= yield %>
