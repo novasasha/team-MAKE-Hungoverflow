@@ -4,7 +4,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.string :body, { null: false }
       t.integer :question_id, { null: false }
       t.integer :user_id, { null: false }
-      t.boolean :best?, { null: false, default: false}
+      t.boolean :best?, { default: false }
 
       t.timestamps(null: false)
     end
