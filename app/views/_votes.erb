@@ -1,4 +1,4 @@
 <form method="post" action="/<%=voteable.class.to_s.downcase + 's'%>/<%= voteable.id %>/vote" class="inline">
     <input type="hidden" name="points" value="<%=vote_value%>">
-     <button type="submit" value="upvote"></button>
+    <input type="submit" value="<%= vote_type %>">
 </form>
