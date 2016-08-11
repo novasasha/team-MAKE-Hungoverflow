@@ -1,8 +1,10 @@
 <div class="question-main">
+  <!-- vote stuff -->
   <div class="vote">
     <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "upvote"} %>
     <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "downvote"} %>
   </div>
+  <!-- vote stuff -->
   <div>
     <h2><%=@question.title%></h2>
     <article><%=@question.body%></article>

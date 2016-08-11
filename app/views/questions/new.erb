@@ -1,0 +1,11 @@
+<h2>Ask A Question</h2>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+<form method="POST" action="/questions">
+  <input type="text" name="question[title]" placeholder="Question Title">
+  <textarea type="text" name="question[body]" placeholder="Type question here"></textarea>
+  <input type="submit" value="Submit">
+</form>
