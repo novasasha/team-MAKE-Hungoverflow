@@ -1,0 +1,8 @@
+<h2>COMMENTS MARKER (remove later)</h2>
+<div class="question-comments">
+  <ul>
+  <% @question.comments.each do |comment| %>
+    <li><%=comment.body%></li>
+  <% end %>
+  <ul>
+</div>

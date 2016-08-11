@@ -1,34 +1,37 @@
-<div class="question-main">
-  <!-- vote stuff -->
-  <div class="vote">
-    <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
-    <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
-  </div>
-  <!-- vote stuff -->
-  <div>
-    <h2><%=@question.title%></h2>
-    <article><%=@question.body%></article>
-   </div>
+<!-- vote stuff -->
+<div class="vote">
+  <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
+  <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
 </div>
-<h2>COMMENTS MARKER (remove later)</h2>
-<div class="question-comments">
-  <ul>
-  <% @question.comments.each do |comment| %>
-    <li><%=comment.body%></li>
-  <% end %>
-  </ul>
-</div>
+<!-- vote stuff -->
 
-<h2>ANSWERS MARKER (remove later)</h2>
-<div class="answers">
-  <ul>
-  <% @question.answers.each do |answer| %>
-    <li><%=answer.body%></li>
-    <%answer.comments.each do |comment|%>
-    <ul>
-      <li><%=comment.body%></li>
-    </ul>
-    <%end%>
+<h2><%=@question.title%></h2>
+<p><%=@question.body%></p>
+<h3>List of answers:</h3>
+<% @question.answers.each do |answer| %>
+  <%= erb :"/answers/_show", locals: { answer: answer } %>
+<% end %>
+
+<h3>List of comments:</h3>
+<% @question.comments.each do |comment| %>
+  <%= erb :"/comments/_show", locals: { comment: comment } %>
+<% end %>
+
+<!-- add an answer to the question if logged in -->
+<% if logged_in? %>
+  <h3>Add an answer</h3>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <% end %>
   <% end %>
-  </ul>
-</div>
+  <form method="POST" action="/questions/<%= @question.id %>/answers">
+    <textarea type="text" name="answer[body]" placeholder="Your answer"></textarea>
+    <input type="submit" value="Answer">
+  </form>
+<% end %>
+<!-- end -->
+
+
+
+

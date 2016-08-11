@@ -1,4 +1,4 @@
-<div class="mini-views">
+<div class="mini-view">
   <div class="votes">
       <div class="mini-counts">
         <span><%=question.votes.count%></span>
@@ -6,18 +6,17 @@
       <div>vote</div>
   </div>
 
-  <div class="answers_container">
+  <div class="answers-container">
       <div class="mini-counts">
         <span><%=question.answers.count%></span>
       </div>
       <div>answers</div>
   </div>
-</div>
 
-<div class="question_container">
-	<h2><a href="/questions/<%=question.id%>"><%= question.title %></a></h2>
-	<article><%= question.body %></article>
-	<span class="date"><%= long_form_date(question.created_at) %></span>
+  <div class="question-container">
+    <h2><a href="/questions/<%=question.id%>"><%= question.title %></a></h2>
+    <span class="date"><%= long_form_date(question.created_at) %></span>
+  </div>
 </div>
 
 
