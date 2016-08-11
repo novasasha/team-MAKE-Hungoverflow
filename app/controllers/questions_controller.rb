@@ -7,8 +7,19 @@ end
 
 # Directs to form for creating a new question
 get '/questions/new' do
-  authorize!
+  erb :"/questions/new"
+end
 
+# insert a new question
+post '/questions' do
+  @question = Question.new(params['question'])
+  @question.author_id = current_user.id
+  if @question.save
+    redirect "/"
+  else
+    @errors = @question.errors.full_messages
+     erb :"/questions/new"
+  end
 end
 
 # Select a specific question
@@ -23,11 +34,6 @@ get '/questions/:id/edit' do
   #validate user ownership of model
 end
 
-# insert a new question
-post '/questions' do
-  authorize!
-
-end
 
 post '/questions/:id/vote' do
   puts "\n\n\n\n"
@@ -50,3 +56,4 @@ delete '/questions/:id' do
   #validate user ownership of model
 
 end
+
