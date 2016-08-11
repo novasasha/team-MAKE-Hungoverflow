@@ -1,5 +1,6 @@
+<div class="subheader">
+  <h1>Questions</h1>
+</div>
 <% @questions.each do |question| %>
   <%= erb :"questions/_list", locals:{question: question} %>
 <% end %>
-
-

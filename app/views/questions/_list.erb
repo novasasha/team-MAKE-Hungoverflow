@@ -1,28 +1,34 @@
-<div class="mini-view">
-  <div class="votes">
-      <div class="mini-counts">
-        <span><%=question.votes.count%></span>
-      </div>
-      <div>vote</div>
-  </div>
 
-  <div class="answers-container">
-      <div class="mini-counts">
-        <span><%=question.answers.count%></span>
-      </div>
-      <div>answers</div>
-  </div>
+<div class="question-summary">
+  <div class="stat-summary">
 
-  <div class="question-container">
-    <h2><a href="/questions/<%=question.id%>"><%= question.title %></a></h2>
-    <span class="date"><%= long_form_date(question.created_at) %></span>
+    <a href="/">
+      <div class="votes">
+        <div class="mini-counts"><span><%= question.votes.count %></span></div>
+        <div class="tiny-text">votes</div>
+      </div>
+    </a>
+
+    <a href="/">
+      <div class="answers">
+        <div class="mini-counts"><span><%= question.answers.count %></span></div>
+        <div class="tiny-text">answers</div>
+      </div>
+    </a>
+
+    <a href="/">
+      <div class="views">
+        <div class="mini-counts"><span>27</span></div>
+        <div class="tiny-text">views</div>
+      </div>
+    </a>
+
+    <a href="/questions/<%= question.id %>">
+      <div class="question">
+        <h3><%= question.title %></h3>
+        <div class="content-brief truncate"><%= question.body %></div>
+      </div>
+    </a>
+
   </div>
 </div>
-
-
-
-
-
-
-
-
