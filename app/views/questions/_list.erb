@@ -1,7 +1,7 @@
 <div class="mini-view">
   <div class="votes">
       <div class="mini-counts">
-        <span><%=question.votes.count%></span>
+        <span><%=question.votes.sum(:points)%></span>
       </div>
       <div>vote</div>
   </div>

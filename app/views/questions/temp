@@ -1,7 +1,20 @@
-<div class="entry">
-	<h2><a href="/entries/<%=post.id%>"><%= post.title %></a></h2>
-	<article><%= post.content %></article>
-	<span class="date"><%= long_form_date(post.created_at) %></span>
-	<form action="/entries/<%= post.id%>/comments" method="post">
-	<%= erb :"/comments/_list", locals:{comments:post.comments} %>
-</div>
+<h2><%=@question.title%></h2>
+<p><%=@question.body%></p>
+
+### add this below question body
+<%= erb :"_comments_form", locals:{commentable: @question} %>
+
+#### end of changes
+
+<h3>List of answers:</h3>
+<% @question.answers.each do |answer| %>
+  <%= erb :"/answers/_show", locals: { answer: answer } %>
+
+  ### add this to answer portion after the _show partial
+  <% if answer %>
+    <%= erb :"_comments_form", locals: {commentable: answer} %>
+  <% end %>
+
+  ### end of changes
+
+<% end %>

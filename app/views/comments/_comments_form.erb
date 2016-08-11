@@ -1,0 +1,4 @@
+<form method="post" action="/<%=commentable.class.to_s.downcase + 's'%>/<%= commentable.id %>/comment" class="text-form">
+    <textarea type="text" name="body" placeholder="Type comment here"></textarea>
+    <button type="submit" value="Add Comment"></button>
+</form>
