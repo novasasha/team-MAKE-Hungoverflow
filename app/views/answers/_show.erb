@@ -1,3 +1,10 @@
 <div class="answer_container">
-  <p><%= answer.body %> <strong>by <%= answer.user_id %></strong></p>
+  <p><%= answer.body %></p>
+
+    <%= erb :"/comments/_comments_form", locals: {commentable: answer} %>
+  <div class="vote">
+    <%= erb :"_votes", locals:{voteable: answer, vote_value: 1, vote_type: "upvote"} %>
+    <%= erb :"_votes", locals:{voteable: answer, vote_value: -1, vote_type: "downvote"} %>
+  </div>
 </div>
+

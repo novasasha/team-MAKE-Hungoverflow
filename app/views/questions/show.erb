@@ -12,6 +12,7 @@
 <% @question.comments.each do |comment| %>
   <%= erb :"/comments/_show", locals: { comment: comment } %>
 <% end %>
+<%= erb :"/comments/_comments_form", locals:{commentable: @question} %>
 
 <h3>List of answers:</h3>
 <% @question.answers.each do |answer| %>
