@@ -1,6 +1,7 @@
 <!-- vote stuff -->
 <div class="vote">
   <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
+   <span>Total Votes: <%= @question.votes.sum(:points) %></span>
   <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
 </div>
 <!-- vote stuff -->
@@ -12,6 +13,10 @@
 <% @question.comments.each do |comment| %>
   <%= erb :"/comments/_show", locals: { comment: comment } %>
 <% end %>
+
+<a href="/questions/<%= @question.id %>/comments/new">add comment</a>
+
+
 <%= erb :"/comments/_comments_form", locals:{commentable: @question} %>
 
 <h3>List of answers:</h3>
@@ -21,17 +26,7 @@
 
 <!-- add an answer to the question if logged in -->
 <% if logged_in? %>
-  <h3>Add an answer</h3>
-  <% if @errors %>
-    <% @errors.each do |error| %>
-      <%= error %>
-    <% end %>
-  <% end %>
-  <form method="POST" action="/questions/<%= @question.id %>/answers">
-    <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
-    <textarea type="text" name="answer[body]" placeholder="Your answer"></textarea>
-    <input type="submit" value="Answer">
-  </form>
+  <%= erb :"/answers/_new" %>
 <% end %>
 <!-- end -->
 
