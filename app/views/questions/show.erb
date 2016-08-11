@@ -1,7 +1,7 @@
 <div class="question-main">
   <div class="vote">
-    <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "upvote"} %>
-    <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "downvote"} %>
+    <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
+    <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
   </div>
   <div>
     <h2><%=@question.title%></h2>
@@ -14,7 +14,7 @@
   <% @question.comments.each do |comment| %>
     <li><%=comment.body%></li>
   <% end %>
-  <ul>
+  </ul>
 </div>
 
 <h2>ANSWERS MARKER (remove later)</h2>
@@ -28,5 +28,5 @@
     </ul>
     <%end%>
   <% end %>
-  <ul>
+  </ul>
 </div>
