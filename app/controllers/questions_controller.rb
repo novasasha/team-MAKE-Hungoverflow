@@ -7,7 +7,11 @@ end
 
 # Directs to form for creating a new question
 get '/questions/new' do
-  erb :"/questions/new"
+  if logged_in?
+    erb :"/questions/new"
+  else
+    redirect "/"
+  end
 end
 
 # insert a new question

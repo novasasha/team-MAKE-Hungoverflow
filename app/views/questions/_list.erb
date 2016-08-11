@@ -1,10 +1,9 @@
-
 <div class="question-summary">
   <div class="stat-summary">
 
     <a href="/">
       <div class="votes">
-        <div class="mini-counts"><span><%= question.votes.count %></span></div>
+        <div class="mini-counts"><span><%=question.votes.sum(:points)%></span></div>
         <div class="tiny-text">votes</div>
       </div>
     </a>
