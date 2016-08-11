@@ -7,14 +7,15 @@
 
 <h2><%=@question.title%></h2>
 <p><%=@question.body%></p>
-<h3>List of answers:</h3>
-<% @question.answers.each do |answer| %>
-  <%= erb :"/answers/_show", locals: { answer: answer } %>
-<% end %>
 
 <h3>List of comments:</h3>
 <% @question.comments.each do |comment| %>
   <%= erb :"/comments/_show", locals: { comment: comment } %>
+<% end %>
+
+<h3>List of answers:</h3>
+<% @question.answers.each do |answer| %>
+  <%= erb :"/answers/_show", locals: { answer: answer } %>
 <% end %>
 
 <!-- add an answer to the question if logged in -->
@@ -26,6 +27,7 @@
     <% end %>
   <% end %>
   <form method="POST" action="/questions/<%= @question.id %>/answers">
+    <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
     <textarea type="text" name="answer[body]" placeholder="Your answer"></textarea>
     <input type="submit" value="Answer">
   </form>
