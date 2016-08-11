@@ -1,34 +1,17 @@
 <div class="question-main">
+  <h2><%=@question.title%></h2>
+  <article><%=@question.body%></article>
+  <% @question.answers.each do |answer| %>
+    <%= erb :"/answers/_show", locals: { answer: answer } %>
+  <% end %>
+
+
+
   <!-- vote stuff -->
   <div class="vote">
     <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "upvote"} %>
     <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "downvote"} %>
   </div>
   <!-- vote stuff -->
-  <div>
-    <h2><%=@question.title%></h2>
-    <article><%=@question.body%></article>
-   </div>
-</div>
-<h2>COMMENTS MARKER (remove later)</h2>
-<div class="question-comments">
-  <ul>
-  <% @question.comments.each do |comment| %>
-    <li><%=comment.body%></li>
-  <% end %>
-  <ul>
 </div>
 
-<h2>ANSWERS MARKER (remove later)</h2>
-<div class="answers">
-  <ul>
-  <% @question.answers.each do |answer| %>
-    <li><%=answer.body%></li>
-    <%answer.comments.each do |comment|%>
-    <ul>
-      <li><%=comment.body%></li>
-    </ul>
-    <%end%>
-  <% end %>
-  <ul>
-</div>
