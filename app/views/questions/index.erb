@@ -1,5 +1,5 @@
 <% @questions.each do |question| %>
-<div class="question">
-	<%= erb :"questions/_questions", locals:{question: question} %>
-</div>
+  <%= erb :"questions/_show", locals:{question: question} %>
 <% end %>
+
+

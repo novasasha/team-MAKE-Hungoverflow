@@ -7,8 +7,7 @@ end
 
 # Directs to form for creating a new question
 get '/questions/new' do
-  authorize!
-
+  erb :"/questions/new"
 end
 
 # Select a specific question
@@ -50,3 +49,4 @@ delete '/questions/:id' do
   #validate user ownership of model
 
 end
+
