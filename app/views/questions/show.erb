@@ -9,9 +9,8 @@
 
   <!-- vote stuff -->
   <div class="vote">
-    <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "upvote"} %>
-    <%= erb :"_votes", locals:{voteable: @question, value: 1, label: "downvote"} %>
+    <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
+    <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
   </div>
   <!-- vote stuff -->
-</div>
 
