@@ -5,6 +5,5 @@ class Vote < ActiveRecord::Base
 
   validates_presence_of :voteable_type, :voteable_id, :user_id, :points
 
-  validates_uniqueness_of :user_id, scope: :voteable_type
-  validates_uniqueness_of :user_id, scope: :voteable_id
+  validates :user_id, uniqueness: { scope: [:voteable_type, :voteable_id]}
 end
