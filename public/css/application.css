@@ -56,7 +56,7 @@ th {
 }*/
 
 /* NAVIGATION */
-ul {
+.navigation ul {
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
@@ -65,11 +65,11 @@ ul {
     width: 75%;
 }
 
-li {
+.navigation li {
     float: left;
 }
 
-li a {
+.navigation li a {
     display: block;
     color: black;
     text-align: center;
@@ -78,7 +78,7 @@ li a {
 }
 
 /* Change the link color on hover */
-li a:hover {
+.navigation li a:hover {
     background-color: #1BBA1F;
 }
 

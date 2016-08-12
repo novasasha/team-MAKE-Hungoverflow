@@ -5,9 +5,15 @@ post '/questions/:id/answers' do
           user_id: current_user.id)
 
   if @answer.save
-    redirect "/questions/#{@answer.question_id}"
+    if request.xhr?
+      erb :"answers/_show", :layout => false,
+      :locals => { answer: @answer }
+    else
+      redirect"/questions/#{@answer.question_id}"
+    end
   else
-    erb :"/questions/#{@answer.question_id}"
+    @errors = @answer.errors.full_messages
+    erb :"/questions/show"
   end
 end
 
