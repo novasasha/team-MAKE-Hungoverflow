@@ -7,9 +7,9 @@
     <%= erb :"/comments/_comments_form", locals: {commentable: answer} %>
 
   <div class="vote">
-    <%= erb :"_votes", locals:{voteable: answer, vote_value: 1, vote_type: "upvote"} %>
+    <%= erb :"_upvotes", locals:{voteable: answer, vote_value: 1, vote_type: "upvote"} %>
     <span>Total Votes: <%= answer.votes.sum(:points) %></span>
-    <%= erb :"_votes", locals:{voteable: answer, vote_value: -1, vote_type: "downvote"} %>
+    <%= erb :"_downvotes", locals:{voteable: answer, vote_value: -1, vote_type: "downvote"} %>
   </div>
 </div>
 </li>

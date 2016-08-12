@@ -1,8 +1,8 @@
 <!-- vote stuff -->
 <div class="vote">
-  <%= erb :"_votes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
-   <span>Total Votes: <%= @question.votes.sum(:points) %></span>
-  <%= erb :"_votes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
+  <%= erb :"_upvotes", locals:{voteable: @question, vote_value: 1, vote_type: "upvote"} %>
+   <span class="vote-total">Total Votes: <%= @question.votes.sum(:points) %></span>
+  <%= erb :"_downvotes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
 </div>
 <!-- vote stuff -->
 
@@ -31,7 +31,3 @@
   <%= erb :"/answers/_new" %>
 <% end %>
 <!-- end -->
-
-
-
-
