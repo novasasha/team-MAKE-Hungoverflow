@@ -15,8 +15,9 @@ $(document).ready(function() {
       method: 'POST'
     })
     .done(function(response){
-      $('.answer-text').text(response);
-      $('#answer-text').val("")
+      console.log(response);
+      $('#answer-text').val("");
+      $('#answers-list').append(response);
     });
   });
 });

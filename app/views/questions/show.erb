@@ -20,9 +20,11 @@
 <%= erb :"/comments/_comments_form", locals:{commentable: @question} %>
 
 <h3>List of answers:</h3>
-<% @question.answers.each do |answer| %>
-  <%= erb :"/answers/_show", locals: { answer: answer } %>
-<% end %>
+<ul id="answers-list">
+  <% @question.answers.each do |answer| %>
+      <%= erb :"/answers/_show", locals: { answer: answer }, layout: false %>
+  <% end %>
+</ul>
 
 <!-- add an answer to the question if logged in -->
 <% if logged_in? %>
