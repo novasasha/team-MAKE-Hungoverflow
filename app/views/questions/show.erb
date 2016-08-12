@@ -5,9 +5,10 @@
   <%= erb :"_downvotes", locals:{voteable: @question, vote_value: -1, vote_type: "downvote"} %>
 </div>
 <!-- vote stuff -->
-
-<h2><%=@question.title%></h2>
-<p><%=@question.body%></p>
+<div class="question-summary">
+  <h2><%=@question.title%></h2>
+  <p><%=@question.body%></p>
+</div>
 
 <h3>List of comments:</h3>
 <% @question.comments.each do |comment| %>
