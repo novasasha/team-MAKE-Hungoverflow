@@ -1,0 +1,6 @@
+<form method="post" action="/<%=voteable.class.to_s.downcase + 's'%>/<%= voteable.id %>/vote" class="vote-form">
+    <input type="hidden" name="points" value="<%=vote_value%>">
+    <button type="submit" style="border: 0; background: transparent" value="<%= vote_type %>">
+      <img src="/images/arrow_up.png" width="30" height="30" alt="submit" />
+    </button>
+</form>
