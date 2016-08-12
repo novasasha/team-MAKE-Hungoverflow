@@ -6,6 +6,6 @@
 <% end %>
 <form id="add-answer" method="POST" action="/questions/<%= @question.id %>/answers">
   <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
-  <textarea type="text" name="answer[body]" placeholder="Your answer"></textarea>
+  <textarea id="answer-text" type="text" name="answer[body]" placeholder="Your answer"></textarea>
   <input type="submit" value="Answer">
 </form>
