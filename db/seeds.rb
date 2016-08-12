@@ -24,9 +24,9 @@ q1 = Question.create( title:"Can you die from a hangover?", body: "Asking for a 
 
 # Answers 
 
-a1 = Answer.create(body: "You need Stinson's hangover fixer eliquer! It contains tantrum, grease, bananas, ginger, funyuns, and a secret ingredient...that I dont remeber...but it really works!" , question_id: 3 , user_id: rand(1..21))
+a1 = Answer.create(body: "You need Stinson's hangover fixer eliquer! It contains tantrum, grease, bananas, ginger, funyuns, and a secret ingredient...that I dont remeber...but it really works!" , question_id: 2 , user_id: rand(1..21))
 
-a2 = Answer.create(body: "have you tried ginger ale and saltines? Always works for me. Good luck!" , question_id: 3 , user_id: rand(1..21))
+a2 = Answer.create(body: "have you tried ginger ale and saltines? Always works for me. Good luck!" , question_id: 2 , user_id: rand(1..21))
 
 a3 = Answer.create(body: "yes." , question_id: 7 , user_id: rand(1..21))
 
@@ -44,20 +44,28 @@ a9 = Answer.create(body: "Dont stop drinking and avoid the hangover forever!" , 
 
 a10 = Answer.create(body: "Eat something greasy and take a nap before it sets in" , question_id: 5 , user_id: rand(1..21))
 
-
 a11 = Answer.create(body: "Don't drink so much tequila next time?" , question_id: 6 , user_id: rand(1..21))
 
 # Votes
-20.times do
+780.times do
   type = ["Answer", "Question"].sample
   vote = Vote.create(voteable_type: type , voteable_id: rand(1..21), user_id: rand(1..21), points: 1)
 end
 
 # Comments
 
-	
+c1 = Comment.create(body: "Does this actually work?", commentable_type: "Answer" , commentable_id: rand(1..21), user_id: rand(1..21))
 
-60.times do
-  type = ["Answer", "Question"].sample
-  a = Comment.create(body: Faker::Hipster.sentence, commentable_type: type , commentable_id: rand(1..21), user_id: rand(1..21))
-end
+c2 = Comment.create(body: "I second this!", commentable_type: "Answer" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+c3 = Comment.create(body: "I second this!", commentable_type: "Answer" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+c4 = Comment.create(body: "I second this!", commentable_type: "Answer" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+c5 = Comment.create(body: "I second this!", commentable_type: "Answer" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+c6 = Comment.create(body: "Have you tried anything yet?", commentable_type: "Question" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+c7 = Comment.create(body: "How much did you drink, exactly? And what types of alcohol?", commentable_type: "Question" , commentable_id: rand(1..21), user_id: rand(1..21))
+
+
