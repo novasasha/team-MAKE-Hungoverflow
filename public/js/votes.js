@@ -1,7 +1,23 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $(".vote-form").on("submit", function(event) {
+    event.preventDefault();
+    $form = $(this)
+    var method = $form.attr("method");
+    var url = $form.attr("action")
+    var data = $form.serialize();
+    var $ajaxRequest = $.ajax( {
+      method: method,
+      url: url,
+      data: data
+    });
+    $ajaxRequest.done(function(response) {
+      console.log(response);
+      var $voteCounts = $form.parent().find(".vote-counts")
+      $voteCounts.text("Total Votes: " + response);
+    });
+    $ajaxRequest.fail(function(response) {
+      alert(response.responseText);
+    })
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  })
 });
